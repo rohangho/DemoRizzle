@@ -24,7 +24,6 @@ public class MyDisplayAdapter extends RecyclerView.Adapter<MyDisplayAdapter.MyVi
     private Context context;
     private List<DisplayModel> allList;
     private List<NodeModel> celebritityContent;
-    private int counter = 0;
 
     public MyDisplayAdapter(Context context, List<DisplayModel> allList, List<NodeModel> celebritityContent) {
         this.context = context;
@@ -50,18 +49,6 @@ public class MyDisplayAdapter extends RecyclerView.Adapter<MyDisplayAdapter.MyVi
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(holder.img);
-        if (position % 2 != 0) {
-            holder.img.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    AlertDialog alertDialog = new AlertDialog.Builder(context).create(); //Read Update
-                    alertDialog.setTitle("Total Worth");
-                    alertDialog.setMessage(celebritityContent.get(counter).getNetWorth());
-                    counter++;
-                    alertDialog.show();
-                }
-            });
-        }
     }
 
     @Override
@@ -70,7 +57,7 @@ public class MyDisplayAdapter extends RecyclerView.Adapter<MyDisplayAdapter.MyVi
     }
 
     public class
-    MyViewHolder extends RecyclerView.ViewHolder {
+    MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView allCOntent;
         private ImageView img;
@@ -79,6 +66,19 @@ public class MyDisplayAdapter extends RecyclerView.Adapter<MyDisplayAdapter.MyVi
             super(itemView);
             allCOntent = itemView.findViewById(R.id.demoText);
             img = itemView.findViewById(R.id.image);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int adapterposition = getAdapterPosition();
+            if (adapterposition % 2 != 0) {
+                AlertDialog alertDialog = new AlertDialog.Builder(context).create(); //Read Update
+                alertDialog.setTitle("Total Worth");
+                alertDialog.setMessage(celebritityContent.get((getAdapterPosition() - 1) / 2).getNetWorth());
+
+                alertDialog.show();
+            }
         }
     }
 }
