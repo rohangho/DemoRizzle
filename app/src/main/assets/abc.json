@@ -1,0 +1,122 @@
+{
+  "data": {
+    "celebrities": {
+      "nodes": [
+        {
+          "name": "Shahrukh Khan",
+          "link": "https://images.pexels.com/photos/1933873/pexels-photo-1933873.jpeg?cs=srgb&dl=pexels-thgusstavo-santana-1933873.jpg&fm=jpg",
+          "feature": "Romance",
+          "netWorth": "2 billion"
+        },
+        {
+          "name": "Viki Kaushal",
+          "link": "https://images.pexels.com/photos/4033871/pexels-photo-4033871.jpeg?cs=srgb&dl=pexels-marlon-schmeiski-4033871.jpg&fm=jpg",
+          "feature": "Looks",
+          "netWorth": "10 million"
+        },
+        {
+          "name": "Katrina",
+          "link": "https://images.pexels.com/photos/3136340/pexels-photo-3136340.jpeg?cs=srgb&dl=pexels-ike-louie-natividad-3136340.jpg&fm=jpg",
+          "feature": "Nothing",
+          "netWorth": "90 million"
+        },
+        {
+          "name": "Virat Kohli",
+          "link": "https://images.pexels.com/photos/3304341/pexels-photo-3304341.jpeg?cs=srgb&dl=pexels-ike-louie-natividad-3304341.jpg&fm=jpg",
+          "feature": "Style",
+          "netWorth": "45 million"
+        },
+        {
+          "name": "K.L. Rahul",
+          "link": "https://images.pexels.com/photos/3310693/pexels-photo-3310693.jpeg?cs=srgb&dl=pexels-ike-louie-natividad-3310693.jpg&fm=jpg",
+          "feature": "Class",
+          "netWorth": "890 million"
+        },
+        {
+          "name": "Baba Ramdev",
+          "link": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg",
+          "feature": "Yoga",
+          "netWorth": "2 Billion"
+        },
+        {
+          "name": "Modi",
+          "link": "https://images.pexels.com/photos/598917/pexels-photo-598917.jpeg?cs=srgb&dl=pexels-kaique-rocha-598917.jpg&fm=jpg",
+          "feature": "Mitron",
+          "netWorth": "1 million"
+        },
+        {
+          "name": "Martin Garrix",
+          "link": "https://images.pexels.com/photos/701740/pexels-photo-701740.jpeg?cs=srgb&dl=pexels-kristina-paukshtite-701740.jpg&fm=jpg",
+          "feature": "DJ",
+          "netWorth": "130 million"
+        },
+        {
+          "name": "Peter",
+          "link": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?cs=srgb&dl=pexels-andrea-piacquadio-774909.jpg&fm=jpg",
+          "feature": "Short",
+          "netWorth": "34 million"
+        },
+        {
+          "name": "Triple H",
+          "link": "https://images.pexels.com/photos/908602/pexels-photo-908602.jpeg?cs=srgb&dl=pexels-daniel-xavier-908602.jpg&fm=jpg",
+          "feature": "NA",
+          "netWorth": "100 million"
+        }
+      ]
+    },
+    "cars": {
+      "nodes": [
+        {
+          "name": "Aston Martin",
+          "link": "https://images.pexels.com/photos/1687147/pexels-photo-1687147.jpeg?cs=srgb&dl=pexels-julio-nery-1687147.jpg&fm=jpg",
+          "color": "Hurrican Gray"
+        },
+        {
+          "name": "Audi",
+          "link": "https://images.pexels.com/photos/733745/pexels-photo-733745.jpeg?cs=srgb&dl=pexels-cesar-perez-733745.jpg&fm=jpg",
+          "color": "Red"
+        },
+        {
+          "name": "BMW",
+          "link": "https://images.pexels.com/photos/3311574/pexels-photo-3311574.jpeg?cs=srgb&dl=pexels-garvin-st-villier-3311574.jpg&fm=jpg",
+          "color": "Blue"
+        },
+        {
+          "name": "Batmobile",
+          "link": "https://images.pexels.com/photos/3354648/pexels-photo-3354648.jpeg?cs=srgb&dl=pexels-jan-kop%C5%99iva-3354648.jpg&fm=jpg",
+          "color": "Yellow"
+        },
+        {
+          "name": "Maruti",
+          "link": "https://images.pexels.com/photos/2710043/pexels-photo-2710043.jpeg?cs=srgb&dl=pexels-sourav-mishra-2710043.jpg&fm=jpg",
+          "color": "Sky blue"
+        },
+        {
+          "name": "Honda",
+          "link": "https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+          "color": "Pinky red"
+        },
+        {
+          "name": "Mercedes",
+          "link": "https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg?cs=srgb&dl=pexels-vlad-alexandru-popa-1402787.jpg&fm=jpg",
+          "color": "Dark gray"
+        },
+        {
+          "name": "Maruti 800",
+          "link": "https://images.pexels.com/photos/3136673/pexels-photo-3136673.jpeg?cs=srgb&dl=pexels-sourav-mishra-3136673.jpg&fm=jpg",
+          "color": "Black"
+        },
+        {
+          "name": "Bentley",
+          "link": "https://images.pexels.com/photos/3342697/pexels-photo-3342697.jpeg?cs=srgb&dl=pexels-i%CC%87brahim-hakk%C4%B1-u%C3%A7man-3342697.jpg&fm=jpg",
+          "color": "Shiny metal"
+        },
+        {
+          "name": "Porsche",
+          "link": "https://images.pexels.com/photos/3637981/pexels-photo-3637981.jpeg?cs=srgb&dl=pexels-garvin-st-villier-3637981.jpg&fm=jpg",
+          "color": "Charcoal gray"
+        }
+      ]
+    }
+  }
+}
