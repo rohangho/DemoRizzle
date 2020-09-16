@@ -19,46 +19,51 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        recylerdisplayer = findViewById(R.id.recycler);
+        recylerdisplayer = findViewById(R.id.recycler)
         recylerdisplayer.layoutManager = GridLayoutManager(this, 2)
 
 
         displayViewModel = ViewModelProvider(this).get(DisplayerViewModel::class.java)
         displayViewModel!!.init()
-        displayViewModel!!.getDetailsRepo().observe(this, this::updateUi)
+        displayViewModel!!.detailsRepo.observe(this, this::updateUi)
     }
 
     private fun updateUi(detailsList: BaseResponse) {
-       var celebrityContent:ArrayList<DisplayModel> = ArrayList()
-        var carContent:ArrayList<DisplayModel> = ArrayList()
-        var allContent:ArrayList<DisplayModel> = ArrayList()
-       var counter =0;
+        var celebrityContent: ArrayList<DisplayModel> = ArrayList()
+        var carContent: ArrayList<DisplayModel> = ArrayList()
+        var allContent: ArrayList<DisplayModel> = ArrayList()
+        var counter = 0
         var counter1 = 0
-        for(i in 0 until detailsList.data!!.celebrities!!.nodes!!.size-1)
-        {
-            var imgLink = detailsList.data!!.celebrities!!.nodes!!.get(i).link!!.substring(0,detailsList.data!!.celebrities!!.nodes!!.get(i).link!!.indexOf("?"))
-           celebrityContent.add(DisplayModel(imgLink,detailsList.data!!.celebrities!!.nodes!!.get(i).name))
+        for (i in 0 until detailsList.data!!.celebrities!!.nodes!!.size - 1) {
+            var imgLink = detailsList.data!!.celebrities!!.nodes!!.get(i).link!!.substring(
+                0,
+                detailsList.data!!.celebrities!!.nodes!!.get(i).link!!.indexOf("?")
+            )
+            celebrityContent.add(
+                DisplayModel(
+                    imgLink,
+                    detailsList.data!!.celebrities!!.nodes!!.get(i).name!!
+                )
+            )
         }
 
-        for(i in 0 until detailsList.data!!.cars!!.nodes!!.size-1)
-        {
-            var imgLink = detailsList.data!!.cars!!.nodes!!.get(i).link!!.substring(0,detailsList.data!!.cars!!.nodes!!.get(i).link!!.indexOf("?"))
-            carContent.add(DisplayModel(imgLink,detailsList.data!!.cars!!.nodes!!.get(i).name))
+        for (i in 0 until detailsList.data!!.cars!!.nodes!!.size - 1) {
+            var imgLink = detailsList.data!!.cars!!.nodes!!.get(i).link!!.substring(
+                0,
+                detailsList.data!!.cars!!.nodes!!.get(i).link!!.indexOf("?")
+            )
+            carContent.add(DisplayModel(imgLink, detailsList.data!!.cars!!.nodes!!.get(i).name!!))
         }
-        for(i in 0 until celebrityContent.size+carContent.size)
-        {
-            if(i%2 != 0)
-            {
-               allContent.add(celebrityContent.get(counter))
-                counter ++
-            }
-            else
-            {
+        for (i in 0 until celebrityContent.size + carContent.size) {
+            if (i % 2 != 0) {
+                allContent.add(celebrityContent.get(counter))
+                counter++
+            } else {
                 allContent.add(carContent.get(counter1))
                 counter1++
             }
         }
-        myAdapter = MyDisplayAdapter(this,allContent)
+        myAdapter = MyDisplayAdapter(this, allContent, detailsList.data!!.celebrities!!.nodes!!)
         recylerdisplayer.adapter = myAdapter
     }
 }

@@ -1,5 +1,6 @@
 package com.demosample.demorizzle.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.demosample.demorizzle.R;
 import com.demosample.demorizzle.model.DisplayModel;
+import com.demosample.demorizzle.model.NodeModel;
 
 import java.util.List;
 
@@ -21,10 +23,13 @@ public class MyDisplayAdapter extends RecyclerView.Adapter<MyDisplayAdapter.MyVi
 
     private Context context;
     private List<DisplayModel> allList;
+    private List<NodeModel> celebritityContent;
+    private int counter = 0;
 
-    public MyDisplayAdapter(Context context, List<DisplayModel> allList) {
+    public MyDisplayAdapter(Context context, List<DisplayModel> allList, List<NodeModel> celebritityContent) {
         this.context = context;
         this.allList = allList;
+        this.celebritityContent = celebritityContent;
     }
 
     @NonNull
@@ -35,16 +40,28 @@ public class MyDisplayAdapter extends RecyclerView.Adapter<MyDisplayAdapter.MyVi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyDisplayAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyDisplayAdapter.MyViewHolder holder, final int position) {
         holder.allCOntent.setText(allList.get(position).getName());
         Glide
                 .with(context)
                 .load(allList.get(position).getImg())
-                .error(R.drawable.nointernet)
+                .error(R.drawable.ic_no_connection)
                 .thumbnail(.1f)
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(holder.img);
+        if (position % 2 != 0) {
+            holder.img.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AlertDialog alertDialog = new AlertDialog.Builder(context).create(); //Read Update
+                    alertDialog.setTitle("Total Worth");
+                    alertDialog.setMessage(celebritityContent.get(counter).getNetWorth());
+                    counter++;
+                    alertDialog.show();
+                }
+            });
+        }
     }
 
     @Override
