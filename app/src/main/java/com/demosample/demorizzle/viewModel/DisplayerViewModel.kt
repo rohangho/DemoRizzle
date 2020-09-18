@@ -1,35 +1,21 @@
-package com.demosample.demorizzle.viewModel;
+package com.demosample.demorizzle.viewModel
 
-import android.app.Application;
+import android.app.Application
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import com.demosample.demorizzle.model.BaseResponse
+import com.demosample.demorizzle.repository.DataRepository
 
-import androidx.annotation.NonNull;
-import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-
-import com.demosample.demorizzle.model.BaseResponse;
-import com.demosample.demorizzle.repository.DataRepository;
-
-public class DisplayerViewModel extends AndroidViewModel {
-    private MutableLiveData<BaseResponse> mutableLiveData;
-    private DataRepository myApiRepo;
-    private Application application;
-
-    public DisplayerViewModel(@NonNull Application application) {
-        super(application);
-        this.application = application;
+class DisplayerViewModel(private val application: Application) : ViewModel(
+) {
+    private var mutableLiveData: MutableLiveData<BaseResponse>? = null
+    private var myApiRepo: DataRepository? = null
+    fun init() {
+        myApiRepo = DataRepository.getInstance(application)
+        mutableLiveData = myApiRepo!!.details
     }
 
-
-    public void init() {
-
-        myApiRepo = DataRepository.getInstance(application);
-        mutableLiveData = myApiRepo.getDetails();
-    }
-
-
-    public LiveData<BaseResponse> getDetailsRepo() {
-        return mutableLiveData;
-    }
-
+    val detailsRepo: LiveData<BaseResponse>?
+        get() = mutableLiveData
 }

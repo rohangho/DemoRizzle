@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         displayViewModel = ViewModelProvider(this).get(DisplayerViewModel::class.java)
         displayViewModel!!.init()
-        displayViewModel!!.detailsRepo.observe(this, this::updateUi)
+        displayViewModel!!.detailsRepo!!.observe(this, this::updateUi)
     }
 
     private fun updateUi(detailsList: BaseResponse) {
